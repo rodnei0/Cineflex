@@ -1,12 +1,3 @@
-.movies {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 11px 30px;
-}
-
 .movie {
     display: flex;
     align-items: center;
