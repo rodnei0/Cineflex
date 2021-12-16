@@ -1,0 +1,14 @@
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    height: 67px;
+  
+    background: #C3CFD9;
+  
+    font-size: 34px;
+    line-height: 40px;
+    color: #E8833A;
+  }
