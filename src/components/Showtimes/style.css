@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.container h2 {
+    margin: 70px 0;
+
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.showtimes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.showtimes p {
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    
+    color: #293845;
+}
+
+.containerShowtime {
+    padding-left: 23px;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 83px;
+    height: 43px;
+
+    margin-right: 8px;
+
+    background: #E8833A;
+    border-radius: 3px;
+
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+.times {
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin: 22px 0;
+}

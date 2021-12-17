@@ -6,9 +6,7 @@ function MainPage() {
         <>
             <main>
                 <h2>Selecione o filme</h2>
-                <section className='movies'>
-                    <Movies />
-                </section>
+                <Movies />
             </main>
         </>
     );

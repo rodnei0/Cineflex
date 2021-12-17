@@ -13,12 +13,3 @@ main h2 {
     letter-spacing: 0.04em;
     color: #293845;
 }
-
-.movies {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 11px 30px;
-}
