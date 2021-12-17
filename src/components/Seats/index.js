@@ -4,21 +4,26 @@ import axios from 'axios'
 import './style.css';
 import Captions from '../Captions';
 
-function checkSeat(isAvailable, situation, setSituation) {
+function checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats) {
     if (!isAvailable) {
         alert("Esse assento não está disponível")
-    } else {
-        setSituation("seat selected")
-    }
-
-    if (situation === "seat selected") {
+    } else if (situation === "seat selected") {
         setSituation("seat")
+        for (let i = 0; i < selectedSeats.length; i++) {
+            if (selectedSeats[i] === id) {
+                selectedSeats.splice(i, 1)
+            }
+        }
+    } else if (situation === "seat"){
+        setSituation("seat selected")
+        setSelectedSeats([...selectedSeats, id]);
     }
+    console.log(selectedSeats)
 }
 
-function Seat({ name, isAvailable }) {
+function Seat({ id, name, isAvailable, selectedSeats, setSelectedSeats }) {
     const [situation, setSituation] = useState("seat");
-    
+
     useEffect(() => {
         if (!isAvailable) {
             setSituation("seat unavailable");
@@ -26,7 +31,7 @@ function Seat({ name, isAvailable }) {
     }, [])
     
     return ( 
-        <div className={`${situation}`} onClick={() => checkSeat(isAvailable, situation, setSituation)}>
+        <div className={`${situation}`} onClick={() => checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats)}>
             {`${name}`}
         </div>
     );
@@ -35,13 +40,13 @@ function Seat({ name, isAvailable }) {
 function Seats() {
     const { idSession } = useParams();
     const [seats, setSeats] = useState(null);
+    const [selectedSeats, setSelectedSeats] = useState([])
 
     useEffect(() => {
 		const promisse = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSession}/seats`);
 
 	    promisse.then(answer => {
             setSeats(answer.data.seats);
-            console.dir(answer.data.seats)
 	});
 	}, []);
 
@@ -55,7 +60,15 @@ function Seats() {
                 <h2>Selecione o(s) assento(s)</h2>
             </div>
             <div className='containerSeats'>
-                {seats.map((seat) => <Seat name={seat.name} isAvailable={seat.isAvailable} key={seat.id}/>)}
+                {seats.map((seat) => 
+                    <Seat 
+                        id={seat.id} 
+                        name={seat.name} 
+                        isAvailable={seat.isAvailable} 
+                        selectedSeats={selectedSeats} 
+                        setSelectedSeats={setSelectedSeats}
+                        key={seat.id}/>)
+                }
             </div>
             <Captions />
         </section>
