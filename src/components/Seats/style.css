@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.container h2 {
+    margin-top: 70px;
+    margin-bottom: 30px;
+
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.seats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.seats p {
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    
+    color: #293845;
+}
+
+.containerSeats {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    padding: 0 24px;
+    gap: 18px 7px;
+}
+
+.seat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
+    
+    background: #C3CFD9;
+    border: 1px solid #808F9D;
+    box-sizing: border-box;
+    border-radius: 12px;
+
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+
+    color: #000000;
+}

@@ -1,0 +1,31 @@
+.captions {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+
+    margin-top: 16px;
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.caption p {
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: -0.013em;
+    color: #4E5A65;
+
+    margin-top: 5px;
+}
+
+.selected {
+    background: #8DD7CF;
+}
+
+.unavailable {
+    background: #FBE192;
+}

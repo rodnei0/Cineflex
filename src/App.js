@@ -11,8 +11,7 @@ function App() {
         <Routes>
             <Route path="/" element={<MainPage />}></Route>
             <Route path="/showtimes/:idMovie" element={<Showtimes />}></Route>
-            <Route path="/seats" element={<Seats />}></Route>
-            {/* <Route path="/seats/:idSession" element={<Seats />}></Route> */}
+            <Route path="/seats/:idSession" element={<Seats />}></Route>
         </Routes>
             
         </BrowserRouter>

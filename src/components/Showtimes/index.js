@@ -10,8 +10,7 @@ function Showtime({ weekday, date, showtimes }) {
             
             <div className='times'>
                 {showtimes.map((time) => 
-                    <Link to={`/seats/`}>
-                    {/* <Link to={`/seats/${time.id}`}> */}
+                    <Link to={`/seats/${time.id}`}>
                         <div className='time'>{`${time.name}`} </div>
                     </Link>)
                 }
