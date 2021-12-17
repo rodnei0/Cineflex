@@ -4,11 +4,31 @@ import axios from 'axios'
 import './style.css';
 import Captions from '../Captions';
 
+function checkSeat(isAvailable, situation, setSituation) {
+    if (!isAvailable) {
+        alert("Esse assento não está disponível")
+    } else {
+        setSituation("seat selected")
+    }
+
+    if (situation === "seat selected") {
+        setSituation("seat")
+    }
+}
+
 function Seat({ name, isAvailable }) {
+    const [situation, setSituation] = useState("seat");
+    
+    useEffect(() => {
+        if (!isAvailable) {
+            setSituation("seat unavailable");
+        }
+    }, [])
+    
     return ( 
-            <div className='seat'>
-                {`${name}`}
-            </div>
+        <div className={`${situation}`} onClick={() => checkSeat(isAvailable, situation, setSituation)}>
+            {`${name}`}
+        </div>
     );
 }
 
