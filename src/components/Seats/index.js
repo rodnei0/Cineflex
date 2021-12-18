@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import './style.css';
 import Captions from '../Captions';
+import Buyer from '../Buyer';
 
 function checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats) {
     if (!isAvailable) {
@@ -71,6 +72,7 @@ function Seats() {
                 }
             </div>
             <Captions />
+            <Buyer selectedSeats={selectedSeats}/>
         </section>
     );
 }
