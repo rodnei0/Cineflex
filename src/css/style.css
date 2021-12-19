@@ -8,6 +8,17 @@ body {
   padding-bottom: 117px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .root {
   position: relative;
 }
+
+/* @media (min-width: 400px) {
+  .showtimes {
+    align-items: center;
+    width: 100%;
+  }
+} */

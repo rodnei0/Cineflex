@@ -17,11 +17,9 @@
 
 .showtimes {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     position: relative;
-
-    scroll-behavior: auto;
 }
 
 
