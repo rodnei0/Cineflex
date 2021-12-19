@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
 import axios from 'axios'
 import './style.css';
-import { render } from "react-dom";
 
 function ReserveSeat(name, cpf, selectedSeats, navigate) {
 

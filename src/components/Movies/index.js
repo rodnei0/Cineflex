@@ -27,10 +27,8 @@ function Movies() {
 
     if(movies === null) {
 		return "Carregando";
-	} else {
-        console.dir(movies)
-    }
-
+	} 
+    
     return (
             <section className='movies'>
                 {movies.map((movie) => <Movie poster={movie.posterURL} title={movie.title} id={movie.id} key={movie.id}/>)}

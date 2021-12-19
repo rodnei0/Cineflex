@@ -2,8 +2,12 @@ import './style.css';
 
 function Top() {
     return (
-        <header className="top">
-            CINEFLEX
+        <header>
+            <div className='containerTop'>
+                <div className='top'>
+                    CINEFLEX
+                </div>
+            </div>
         </header>
     );
 }

@@ -4,6 +4,7 @@ import axios from 'axios'
 import './style.css';
 import Captions from '../Captions';
 import Buyer from '../Buyer';
+import Footer from '../Footer';
 
 function checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats) {
     if (!isAvailable) {
@@ -19,7 +20,6 @@ function checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setS
         setSituation("seat selected")
         setSelectedSeats([...selectedSeats, id]);
     }
-    console.log(selectedSeats)
 }
 
 function Seat({ id, name, isAvailable, selectedSeats, setSelectedSeats }) {
@@ -47,7 +47,7 @@ function Seats() {
 		const promisse = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSession}/seats`);
 
 	    promisse.then(answer => {
-            setSeats(answer.data.seats);
+            setSeats(answer.data);
 	});
 	}, []);
 
@@ -56,24 +56,27 @@ function Seats() {
 	} 
 
     return (
-        <section className="seats">
-            <div className='container'>
-                <h2>Selecione o(s) assento(s)</h2>
-            </div>
-            <div className='containerSeats'>
-                {seats.map((seat) => 
-                    <Seat 
-                        id={seat.id} 
-                        name={seat.name} 
-                        isAvailable={seat.isAvailable} 
-                        selectedSeats={selectedSeats} 
-                        setSelectedSeats={setSelectedSeats}
-                        key={seat.id}/>)
-                }
-            </div>
-            <Captions />
-            <Buyer selectedSeats={selectedSeats}/>
-        </section>
+        <>
+            <section className="seats">
+                <div className='container'>
+                    <h2>Selecione o(s) assento(s)</h2>
+                </div>
+                <div className='containerSeats'>
+                    {seats.seats.map((seat) => 
+                        <Seat 
+                            id={seat.id} 
+                            name={seat.name} 
+                            isAvailable={seat.isAvailable} 
+                            selectedSeats={selectedSeats} 
+                            setSelectedSeats={setSelectedSeats}
+                            key={seat.id}/>)
+                    }
+                </div>
+                <Captions />
+                <Buyer selectedSeats={selectedSeats} />
+            </section>
+            <Footer poster={seats.movie.posterURL} title={seats.movie.title} day={seats.day.weekday} name={seats.name}/>
+        </>
     );
 }
 

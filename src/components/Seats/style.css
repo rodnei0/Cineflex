@@ -19,6 +19,8 @@
 .seats {
     display: flex;
     flex-wrap: wrap;
+    
+    scroll-behavior: auto;
 }
 
 

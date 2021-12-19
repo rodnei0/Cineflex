@@ -4,4 +4,10 @@
   
 body {
   font-family: 'Roboto', sans-serif;
+  padding-top: 67px;
+  padding-bottom: 117px;
+}
+
+.root {
+  position: relative;
 }
