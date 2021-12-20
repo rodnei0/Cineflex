@@ -6,23 +6,25 @@ import Captions from '../Captions';
 import Buyer from '../Buyer';
 import Footer from '../Footer';
 
-function checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats) {
+function checkSeat(id, name, isAvailable, situation, setSituation, selectedSeatsId, setSelectedSeatsId, selectedSeatsName, setSelectedSeatsName) {
     if (!isAvailable) {
         alert("Esse assento não está disponível")
     } else if (situation === "seat selected") {
         setSituation("seat")
-        for (let i = 0; i < selectedSeats.length; i++) {
-            if (selectedSeats[i] === id) {
-                selectedSeats.splice(i, 1)
+        for (let i = 0; i < selectedSeatsId.length; i++) {
+            if (selectedSeatsId[i] === id) {
+                selectedSeatsId.splice(i, 1);
+                selectedSeatsName.splice(i, 1);
             }
         }
     } else if (situation === "seat"){
         setSituation("seat selected")
-        setSelectedSeats([...selectedSeats, id]);
+        setSelectedSeatsId([...selectedSeatsId, id]);
+        setSelectedSeatsName([...selectedSeatsName, name]);
     }
 }
 
-function Seat({ id, name, isAvailable, selectedSeats, setSelectedSeats }) {
+function Seat({ id, name, isAvailable, selectedSeatsId, setSelectedSeatsId, selectedSeatsName, setSelectedSeatsName }) {
     const [situation, setSituation] = useState("seat");
 
     useEffect(() => {
@@ -32,7 +34,7 @@ function Seat({ id, name, isAvailable, selectedSeats, setSelectedSeats }) {
     }, [])
     
     return ( 
-        <div className={`${situation}`} onClick={() => checkSeat(id, isAvailable, situation, setSituation, selectedSeats, setSelectedSeats)}>
+        <div className={`${situation}`} onClick={() => checkSeat(id, name, isAvailable, situation, setSituation, selectedSeatsId, setSelectedSeatsId, selectedSeatsName, setSelectedSeatsName)}>
             {`${name}`}
         </div>
     );
@@ -41,7 +43,8 @@ function Seat({ id, name, isAvailable, selectedSeats, setSelectedSeats }) {
 function Seats() {
     const { idSession } = useParams();
     const [seats, setSeats] = useState(null);
-    const [selectedSeats, setSelectedSeats] = useState([])
+    const [selectedSeatsId, setSelectedSeatsId] = useState([])
+    const [selectedSeatsName, setSelectedSeatsName] = useState([])
 
     useEffect(() => {
 		const promisse = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSession}/seats`);
@@ -67,13 +70,15 @@ function Seats() {
                             id={seat.id} 
                             name={seat.name} 
                             isAvailable={seat.isAvailable} 
-                            selectedSeats={selectedSeats} 
-                            setSelectedSeats={setSelectedSeats}
+                            selectedSeatsId={selectedSeatsId} 
+                            setSelectedSeatsId={setSelectedSeatsId}
+                            selectedSeatsName={selectedSeatsName} 
+                            setSelectedSeatsName={setSelectedSeatsName}
                             key={seat.id}/>)
                     }
                 </div>
                 <Captions />
-                <Buyer selectedSeats={selectedSeats} />
+                <Buyer selectedSeats={selectedSeatsName} title={seats.movie.title} date={seats.day.date} hour={seats.name}/>
             </section>
             <Footer poster={seats.movie.posterURL} title={seats.movie.title} day={seats.day.weekday} name={seats.name}/>
         </>

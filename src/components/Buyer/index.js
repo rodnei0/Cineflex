@@ -2,7 +2,7 @@ import { useState } from 'react/cjs/react.development';
 import Reserve from '../Reserve';
 import './style.css';
 
-function Buyer({selectedSeats}) {
+function Buyer({selectedSeats, title, date, hour }) {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
 
@@ -18,7 +18,7 @@ function Buyer({selectedSeats}) {
                     <input placeholder="Digite seu CPF..." value={cpf} onChange={e => setCpf(e.target.value)} />
                 </div>
             </div>
-            <Reserve name={name} cpf={cpf} selectedSeats={selectedSeats}/>
+            <Reserve name={name} cpf={cpf} selectedSeats={selectedSeats} title={title} date={date} hour={hour}/>
         </div>
     );
 }
