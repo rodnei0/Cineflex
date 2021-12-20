@@ -19,7 +19,25 @@ function Success() {
     console.dir(hour) ;
 
     return (
-        <h1>TESTE BAGABUNDO</h1>
+        <section className='success'>
+            <div className='container'>
+                <h2>Pedido feito com sucesso!</h2>   
+            </div>
+            <div className='informations'>
+                <h3>Filme e sessão</h3>
+                <p>{title}</p>
+                <p>{date} - {hour}</p>
+            </div>
+            <div className='informations'>
+                <h3>Ingressos</h3>
+                {selectedSeats.map((seat) => <p>Assento - {seat}</p>)}
+            </div>
+            <div className='informations'>
+                <h3>Comprador</h3>
+                <p>Nome: {name}</p>
+                <p>CPF: {cpf}</p>
+            </div>
+        </section>
     );
 }
 

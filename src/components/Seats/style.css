@@ -1,21 +1,3 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-}
-
-.container h2 {
-    margin-top: 70px;
-    margin-bottom: 30px;
-
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.04em;
-    color: #293845;
-}
-
 .seats {
     display: flex;
     flex-wrap: wrap;

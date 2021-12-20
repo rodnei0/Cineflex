@@ -3,7 +3,6 @@ import axios from 'axios'
 import './style.css';
 
 function ReserveSeat(name, cpf, selectedSeats, navigate, title, date, hour) {
-    console.log(navigate);
     if (selectedSeats.length === 0) {
         alert("Nenhum assento selecionado!");
         return
@@ -17,8 +16,16 @@ function ReserveSeat(name, cpf, selectedSeats, navigate, title, date, hour) {
         return
     }
 
+    const data = {  name: name, 
+                    cpf: cpf, selectedSeats: 
+                    selectedSeats, 
+                    title: title, 
+                    date: date, 
+                    hour: hour
+                };
+
     const promisse = axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", {ids: selectedSeats, name: name, cpf: cpf});
-    promisse.then(() => navigate("/success", {state: {name: name, cpf: cpf, selectedSeats: selectedSeats, title: title, date: date, hour: hour}}));
+    promisse.then(() => navigate("/success", {state: data}));
 }
 
 function Reserve({ name, cpf, selectedSeats, title, date, hour }) {

@@ -5,6 +5,7 @@ import './style.css';
 import Captions from '../Captions';
 import Buyer from '../Buyer';
 import Footer from '../Footer';
+import Reserve from '../Reserve';
 
 function checkSeat(id, name, isAvailable, situation, setSituation, selectedSeatsId, setSelectedSeatsId, selectedSeatsName, setSelectedSeatsName) {
     if (!isAvailable) {
@@ -45,6 +46,8 @@ function Seats() {
     const [seats, setSeats] = useState(null);
     const [selectedSeatsId, setSelectedSeatsId] = useState([])
     const [selectedSeatsName, setSelectedSeatsName] = useState([])
+    const [name, setName] = useState("");
+    const [cpf, setCpf] = useState("");
 
     useEffect(() => {
 		const promisse = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSession}/seats`);
@@ -74,11 +77,13 @@ function Seats() {
                             setSelectedSeatsId={setSelectedSeatsId}
                             selectedSeatsName={selectedSeatsName} 
                             setSelectedSeatsName={setSelectedSeatsName}
-                            key={seat.id}/>)
+                            key={seat.id}
+                        />)
                     }
                 </div>
                 <Captions />
-                <Buyer selectedSeats={selectedSeatsName} title={seats.movie.title} date={seats.day.date} hour={seats.name}/>
+                <Buyer name={name} setName={setName} cpf={cpf} setCpf={setCpf}/>
+                <Reserve name={name} cpf={cpf} selectedSeats={selectedSeatsName} title={seats.movie.title} date={seats.day.date} hour={seats.name}/>
             </section>
             <Footer poster={seats.movie.posterURL} title={seats.movie.title} day={seats.day.weekday} name={seats.name}/>
         </>

@@ -7,7 +7,8 @@
 }
 
 .container h2 {
-    margin: 70px 0;
+    margin-top: 70px;
+    margin-bottom: 30px;
 
     font-size: 24px;
     line-height: 28px;
