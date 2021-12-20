@@ -32,7 +32,7 @@ function Success() {
             </div>
             <Link to={"/"}>
                 <div className='home'> 
-                    <button>Voltar para Home</button>
+                    <button className='homeButton'>Voltar para Home</button>
                 </div>
             </Link>
         </section>

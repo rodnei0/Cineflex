@@ -20,17 +20,19 @@ function Showtime({ weekday, date, showtimes }) {
     );
 }
 
-function Showtimes() {
+function Showtimes({ setPage }) {
     const { idMovie } = useParams();
     const [showtimes, setShowtimes] = useState(null);
 
     useEffect(() => {
+        setPage("not-main");
+
 		const promisse = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/movies/${idMovie}/showtimes`);
 
 	    promisse.then(answer => {
             setShowtimes(answer.data);
 	});
-	}, [idMovie]);
+	}, [idMovie, setPage]);
 
     if(showtimes === null) {
 		return "Carregando";

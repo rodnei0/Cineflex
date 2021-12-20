@@ -1,7 +1,13 @@
+import { useEffect } from 'react/cjs/react.development';
 import Movies from '../Movies';
 import './style.css';
 
-function MainPage() {
+function MainPage({ setPage }) {
+    useEffect(() => {
+        setPage("main");
+    }, [setPage])
+    
+
     return (
         <>
             <main>
