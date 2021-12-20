@@ -32,7 +32,7 @@ function Seat({ id, name, isAvailable, selectedSeatsId, setSelectedSeatsId, sele
         if (!isAvailable) {
             setSituation("seat unavailable");
         }
-    }, [])
+    }, [isAvailable])
     
     return ( 
         <div className={`${situation}`} onClick={() => checkSeat(id, name, isAvailable, situation, setSituation, selectedSeatsId, setSelectedSeatsId, selectedSeatsName, setSelectedSeatsName)}>
@@ -55,7 +55,7 @@ function Seats() {
 	    promisse.then(answer => {
             setSeats(answer.data);
 	});
-	}, []);
+	}, [idSession]);
 
     if(seats === null) {
 		return "Carregando";

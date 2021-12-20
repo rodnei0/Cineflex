@@ -11,7 +11,7 @@ function Showtime({ weekday, date, showtimes }) {
             
             <div className='times'>
                 {showtimes.map((time) => 
-                    <Link to={`/seats/${time.id}`}>
+                    <Link to={`/seats/${time.id}`} key={time.id}>
                         <div className='time'>{`${time.name}`} </div>
                     </Link>)
                 }
@@ -30,7 +30,7 @@ function Showtimes() {
 	    promisse.then(answer => {
             setShowtimes(answer.data);
 	});
-	}, []);
+	}, [idMovie]);
 
     if(showtimes === null) {
 		return "Carregando";
