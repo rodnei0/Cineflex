@@ -32,3 +32,27 @@
     letter-spacing: 0.04em;
     color: #293845;
 }
+
+.home {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    
+    margin-top: 70px;
+}
+
+button {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+
+    width: 225px;
+    height: 42px;
+
+    background: #E8833A;
+    border-radius: 3px;
+    border: 0;
+}
