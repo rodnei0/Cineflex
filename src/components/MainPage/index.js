@@ -5,7 +5,7 @@ import './style.css';
 function MainPage({ setPage }) {
     useEffect(() => {
         setPage("main");
-    }, [setPage])
+    }, [setPage]);
     
 
     return (
