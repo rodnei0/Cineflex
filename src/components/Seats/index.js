@@ -83,7 +83,7 @@ function Seats() {
                 </div>
                 <Captions />
                 <Buyer name={name} setName={setName} cpf={cpf} setCpf={setCpf}/>
-                <Reserve name={name} cpf={cpf} selectedSeats={selectedSeatsName} title={seats.movie.title} date={seats.day.date} hour={seats.name}/>
+                <Reserve name={name} cpf={cpf} selectedSeatsId={selectedSeatsId} selectedSeatsName={selectedSeatsName} title={seats.movie.title} date={seats.day.date} hour={seats.name}/>
             </section>
             <Footer poster={seats.movie.posterURL} title={seats.movie.title} day={seats.day.weekday} name={seats.name}/>
         </>
