@@ -1,6 +1,11 @@
 # Cineflex
 
-Availabe at https://cineflex-rodnei0.vercel.app/
+<p align="center">
+  <image src="https://github.com/rodnei0/cineflex/blob/main/src/cineflex.gif" />
+</p>
+<p align="center">
+  Availabe at https://cineflex-rodnei0.vercel.app/
+</p>
 
 ## About
 
